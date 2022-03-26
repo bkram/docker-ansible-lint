@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI Local Runner
 
 on:
   push:
@@ -15,18 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Login to Docker Hub
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
-          registry: ${{ secrets.REGISTRY }}
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_PASS }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
 
       - name: Build the Docker image
         run: docker build Docker -t bkram/docker-ansible-lint:latest
 
       - name: Tag image destination
-        run: docker tag bkram/docker-ansible-lint:latest ${{ secrets.REGISTRY }}/bkram/docker-ansible-lint:latest
+        run: docker tag bkram/docker-ansible-lint:latest ghcr.io/bkram/docker-ansible-lint:latest
 
       - name: Push to registry
-        run: docker push ${{ secrets.REGISTRY }}/bkram/docker-ansible-lint:latest
+        run: docker push ghcr.io/bkram/docker-ansible-lint:latest
