@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+LABEL org.opencontainers.image.source https://github.com/bkram/docker-ansible-lint
 ENV PYTHONUNBUFFERED=1
 RUN useradd -m ansible && \
     apt update && \
