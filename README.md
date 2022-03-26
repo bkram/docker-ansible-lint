@@ -10,15 +10,15 @@ Alternative docker image for ansible-lint
 docker run --rm -v <Ansible Path>:/ansible ghcr.io/bkram/docker-ansible-lint:latest
 ```
 
-### Doing it yourself
+## Doing it yourself
 
-## Build the image
+### Build the image
 
 ```bash
 docker build Docker -t bkram/docker-ansible-lint
 ```
 
-## Using the image
+### Using the image
 
 ```bash
 docker run --rm -v <Ansible Path>:/ansible bkram/docker-ansible-lint
