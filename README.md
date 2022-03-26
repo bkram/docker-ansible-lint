@@ -11,5 +11,5 @@ docker build Docker -t bkram/docker-ansible-lint
 ## Using the image
 
 ```bash
-docker run -v <PATH>:/ansible bkram/docker-ansible-lint
+docker run --rm -v <PATH>:/ansible bkram/docker-ansible-lint
 ```
