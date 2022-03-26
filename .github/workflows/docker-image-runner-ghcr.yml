@@ -1,0 +1,32 @@
+name: Docker Image CI Local Runner
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Docker image
+        run: docker build Docker -t bkram/docker-ansible-lint:latest
+
+      - name: Tag image destination
+        run: docker tag bkram/docker-ansible-lint:latest ghcr.io/bkram/docker-ansible-lint:latest
+
+      - name: Push to registry
+        run: docker push ghcr.io/bkram/docker-ansible-lint:latest
