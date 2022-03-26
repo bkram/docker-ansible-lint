@@ -1,6 +1,6 @@
 # docker-ansible-lint
 
-Alternative docker image for ansible-lint
+Alternative alpine based docker image for ansible-lint
 
 [![Docker CI Build](https://github.com/bkram/docker-ansible-lint/actions/workflows/docker-image.yml/badge.svg)](https://github.com/bkram/docker-ansible-lint/actions/workflows/docker-image.yml)
 
