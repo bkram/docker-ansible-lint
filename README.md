@@ -29,3 +29,28 @@ Running ansible-lint in your current directory.
 ```bash
 docker run --rm -v "${PWD}":/ansible bkram/docker-ansible-lint --force-color
 ```
+
+## Github actions workflow example
+
+In your repository with ansible code create a file called ``.github/workflows/ansible-lint.yml``
+
+```yaml
+---
+name: ansible-lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run ansible-lint docker
+        run: docker run -v $GITHUB_WORKSPACE:/ansible ghcr.io/bkram/docker-ansible-lint:latest --force-color
+```
