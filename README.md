@@ -1,8 +1,8 @@
 # docker-ansible-lint
 
-Alternative alpine based docker image for ansible-lint
+Alternative Alpine based docker image for ansible-lint
 
-[![Docker CI Build](https://github.com/bkram/docker-ansible-lint/actions/workflows/docker-image.yml/badge.svg)](https://github.com/bkram/docker-ansible-lint/actions/workflows/docker-image.yml)
+[![Create and publish a Docker image](https://github.com/bkram/docker-ansible-lint/actions/workflows/build-publish-docker.yml/badge.svg?branch=release)](https://github.com/bkram/docker-ansible-lint/actions/workflows/build-publish-docker.yml)
 
 ## Using the image from ghcr.io
 
