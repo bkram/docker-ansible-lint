@@ -8,6 +8,8 @@ RUN adduser -D ansible && \
     pip install ansible-lint && \
     apk del gcc python3-dev libc-dev libffi-dev && \
     rm -rf /var/cache/apk/*
+COPY launch.sh /launch.sh
+RUN chmod +x launch.sh
 USER ansible
 WORKDIR /ansible
-ENTRYPOINT [ "ansible-lint", "-c", "/ansible/.config/ansible-lint.yml", "--force-color"]
+ENTRYPOINT ["/launch.sh"]
