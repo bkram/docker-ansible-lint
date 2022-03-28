@@ -1,7 +1,9 @@
 #!/bin/sh
 ARGS=""
 
-if [ -e "/ansible/.config/ansible-lint.yml" ]; then
+if [ -e "/ansible/.ansible-lint" ]; then
+    ARGS=${ARGS}"-c /ansible/.ansible-lint"
+elif [ -e "/ansible/.config/ansible-lint.yml" ]; then
     ARGS=${ARGS}"-c /ansible/.config/ansible-lint.yml"
 fi
 
