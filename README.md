@@ -12,6 +12,23 @@ Running ansible-lint in your current directory.
 docker run --rm -v "${PWD}":/ansible ghcr.io/bkram/docker-ansible-lint:latest --force-color
 ```
 
+## Configuration files
+
+In order of detection the possibilites are:
+
+### Config file specified on the command line
+
+```bash
+docker run --rm -v config.yml:/config/ansible-lint.yml -v "${PWD}":/ansible ghcr.io/bkram/docker-ansible-lint:latest --force-color
+```
+
+### Config files are used from the directory mounted in docker
+
+The files are detected in this order :
+
+- .ansible-lint
+- .config/ansible-lint.yml
+
 ## Doing it yourself
 
 ### Build the image
