@@ -1,3 +1,4 @@
+#Bump
 FROM alpine:latest
 LABEL org.opencontainers.image.source https://github.com/bkram/docker-ansible-lint
 LABEL org.opencontainers.image.description Yet an alternative ansible-lint docker image
