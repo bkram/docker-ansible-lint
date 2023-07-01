@@ -1,4 +1,4 @@
-#Bump
+
 FROM alpine:latest
 LABEL org.opencontainers.image.source https://github.com/bkram/docker-ansible-lint
 LABEL org.opencontainers.image.description Yet an alternative ansible-lint docker image
@@ -11,6 +11,7 @@ RUN apk add --no-cache python3 python3-dev py-pip gcc libc-dev libffi-dev git &&
     rm -rf /var/cache/apk/*
 
 RUN adduser -D ansible
+RUN mkdir /ansible && chown ansible:ansible /ansible
 COPY launch.sh /launch.sh
 RUN chmod +x /launch.sh
 
